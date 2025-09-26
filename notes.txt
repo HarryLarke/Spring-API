@@ -1,0 +1,7 @@
+Hello! So here are my personal notes for this projects, tracking jobs and progress.
+Feel free to have a browse, again this more for personal use, if you want more general info 
+with this projest have a look at the README.md file. 
+
+Date: 26.09.25 
+Goals: The plan is to simple configure this server to a Postgres DB, which I will run using a Docker container. 
+Timescale: 1 hour 

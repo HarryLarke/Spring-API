@@ -34,3 +34,6 @@ build/
 
 ### Environement Variables ###
 .env
+application-dev.properties
+application-test.properties
+application.properties
