@@ -54,16 +54,15 @@ public class MemberController {
        return ResponseEntity.created(null).body("Member has been added.");
     }   
 
-    /* 
+    
     @PutMapping("{id}")
     public ResponseEntity<String> updateMember(
-        @PathVariable String id, 
+        @PathVariable Integer id, 
         @RequestBody UpdateMemberRequest req
     ){
         MemberService.update(id, req);
-        return ResponseStatus.ok().body("Member with id: " + id + " has been updated.")
-        //201 will later be needed!
-    } */
+        return ResponseEntity.ok().body("Member with id: " + id + " has been updated.");
+    } 
 
     //Later add other methods, such as get by legion etc. 
 

@@ -46,21 +46,29 @@ public class MemberService {
         memberRepo.save(newMember); //Don't know if this is the cleanest method or not?
     }
 
-   /*  public static void update(String id, UpdateMemberRequest req){
+    public static void update(Integer id, UpdateMemberRequest req){
          //Probably require seperate class either/or DTO?
-        Optional<Member> foundMember = getById(id);
-        if(foundMember.isEmpty()){
+        Optional<Member> foundMemberOpt = getById(id);
+        if(foundMemberOpt.isEmpty()){
             throw new RuntimeException("Member not found");
         } 
-        updateStringIfPresent(req.origin(), foundMember.setOrigin());
-        
+        Member foundMember = foundMemberOpt.get();
+        updateStringIfPresent(req.origin(), foundMember::setOrigin);
+        updateStringIfPresent(req.stationedAt(), foundMember::setStationedAt);
+        updateStringIfPresent(req.legion(), foundMember::setLegion);
+        updateStringIfPresent(req.firstName(), foundMember::setFirstName);
+        updateStringIfPresent(req.lastName(), foundMember::setLastName);
+        updateStringIfPresent(req.rank(), foundMember::setRank);
+
+        memberRepo.save(foundMember);
+ 
     }
 
-    private void updateStringIfPresent(String newString, Consumer<String> setter){
-        Optional.ofNullable(newString)
+    private static void updateStringIfPresent(String newValue, Consumer<String> setter){
+        Optional.ofNullable(newValue)
             .filter(string -> !string.isBlank())
             .ifPresent(setter);
-    } */
+    } 
 
 
 }

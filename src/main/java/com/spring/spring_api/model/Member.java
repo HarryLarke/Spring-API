@@ -31,6 +31,7 @@ public class Member {
         this.legion = legion;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.rank = rank;
     }
 
     /*GETTERS*/
