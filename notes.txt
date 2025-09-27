@@ -5,3 +5,10 @@ with this projest have a look at the README.md file.
 Date: 26.09.25 
 Goals: The plan is to simple configure this server to a Postgres DB, which I will run using a Docker container. 
 Timescale: 1 hour 
+
+Date 27.09.25 
+Goals: Build out and get running the basic API with Crud ops. 
+Timescale 4 hours 
+Notes: I managed to achieve this, got a bug with key 'rank' not being returned, hope I can sort this today and then move onto exceptions!
+
+

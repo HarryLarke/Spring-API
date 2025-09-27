@@ -20,6 +20,7 @@ public class Member {
     private String lastName;
     private String rank; //Maybe convert to enum
 
+
     public Member() {
 
     }
@@ -32,6 +33,7 @@ public class Member {
         this.firstName = firstName;
         this.lastName = lastName;
         this.rank = rank;
+       
     }
 
     /*GETTERS*/
@@ -53,7 +55,7 @@ public class Member {
     public String getLastName() {
         return lastName;
     }
-    public String rank() {
+    public String getRank() {
         return rank;
     }
 
