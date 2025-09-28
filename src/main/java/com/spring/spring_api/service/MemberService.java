@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.spring.spring_api.SpringApiApplication;
 import com.spring.spring_api.DTO.AddMemberRequest;
 import com.spring.spring_api.DTO.UpdateMemberRequest;
+import com.spring.spring_api.exception.MemberNotFoundException;
 import com.spring.spring_api.model.Member;
 import com.spring.spring_api.repository.MemberRepo;
 
@@ -28,13 +29,16 @@ public class MemberService {
     public static Optional<Member> getById(Integer id){
         Optional<Member> foundMember = memberRepo.findById(id);
         if(foundMember.isEmpty()){
-            throw new RuntimeException("Not found");//Will make custom exception later.
+            throw new MemberNotFoundException("Member with ID: " + id + " is not found.");
         }
         return foundMember;
     } 
 
     public static void deleteById(Integer id){
-        memberRepo.deleteById(id);
+        if(!memberRepo.existsById(id)){
+            throw new MemberNotFoundException("Member with id: " + id + " is not found. Cannot be deleted.");
+        }
+        memberRepo.deleteById(id); //Will need an exists check here!
     }
 
     public static void add(AddMemberRequest req){
@@ -48,9 +52,9 @@ public class MemberService {
 
     public static void update(Integer id, UpdateMemberRequest req){
          //Probably require seperate class either/or DTO?
-        Optional<Member> foundMemberOpt = getById(id);
+        Optional<Member> foundMemberOpt = memberRepo.findById(id);
         if(foundMemberOpt.isEmpty()){
-            throw new RuntimeException("Member not found");
+            throw new MemberNotFoundException("Member with ID: " + id + " is not found. Cannot be updated.");
         } 
         Member foundMember = foundMemberOpt.get();
         updateStringIfPresent(req.origin(), foundMember::setOrigin);
