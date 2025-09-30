@@ -8,7 +8,22 @@ Timescale: 1 hour
 
 Date 27.09.25 
 Goals: Build out and get running the basic API with Crud ops. 
-Timescale 4 hours 
+Timescale: 4 hours 
 Notes: I managed to achieve this, got a bug with key 'rank' not being returned, hope I can sort this today and then move onto exceptions!
 
+Date 28.09.25
+Goals: Start working exceptions. 
+Timescale: 2 - 4 hours
+Notes: Managed to make a good start on my exceptions, with 404 added and integrated which is good. Additionally, this includes my GlobalExceptionHandler class. 
+404 custom exception handler seems to be working in dev, which is encouraging. Also, nipped a bug in my service, where I was calling another service method in my 
+updatedService method, which was good. Though it worked, it's an odd way to run a server, which the rest use JPA. 
 
+Date 29.09.25
+Goals: Building some more tables and integrated them into the server. 
+Timescale: 2 - 6 hours
+Notes: I'm writing this before I get started but, I recon I will have this finished tomorrow. I think the plan is to evolve this server so it can handle a more complexed and interlinked sql db.
+DTO's and exceptionHandling might have to be moved into a there own dirs. 
+
+Date 30.09.25 
+Goals:Finish building and integrating the Station table to the server. Also work on making sure the server correctly responds when receiving data types that exists in the table, but cannot be uipdated!
+Notes: As said yesterday, I've already made a start on the building more tables. 

@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 import org.springframework.stereotype.Service;
 
 import com.spring.spring_api.SpringApiApplication;
-import com.spring.spring_api.DTO.AddMemberRequest;
-import com.spring.spring_api.DTO.UpdateMemberRequest;
+import com.spring.spring_api.DTO.Member.AddMemberRequest;
+import com.spring.spring_api.DTO.Member.UpdateMemberRequest;
 import com.spring.spring_api.exception.MemberNotFoundException;
 import com.spring.spring_api.model.Member;
 import com.spring.spring_api.repository.MemberRepo;
@@ -71,7 +71,7 @@ public class MemberService {
     private static void updateStringIfPresent(String newValue, Consumer<String> setter){
         Optional.ofNullable(newValue)
             .filter(string -> !string.isBlank())
-            .ifPresent(setter);
+            .ifPresent(setter); //Maybe move to utils later?
     } 
 
 

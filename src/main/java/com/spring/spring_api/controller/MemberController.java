@@ -3,8 +3,8 @@ import com.spring.spring_api.service.MemberService;
 
 import jakarta.validation.Valid;
 
-import com.spring.spring_api.DTO.AddMemberRequest;
-import com.spring.spring_api.DTO.UpdateMemberRequest;
+import com.spring.spring_api.DTO.Member.AddMemberRequest;
+import com.spring.spring_api.DTO.Member.UpdateMemberRequest;
 import com.spring.spring_api.model.Member;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//Potentially the calling of services from both members and station services. 
 @RestController
 @RequestMapping("/members")
 public class MemberController {

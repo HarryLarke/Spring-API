@@ -1,4 +1,4 @@
-package com.spring.spring_api.DTO;
+package com.spring.spring_api.DTO.Member;
 
 public record UpdateMemberRequest(
     String origin,

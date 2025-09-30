@@ -1,4 +1,4 @@
-package com.spring.spring_api.DTO;
+package com.spring.spring_api.DTO.Member;
 
 import jakarta.validation.constraints.NotEmpty;
 
