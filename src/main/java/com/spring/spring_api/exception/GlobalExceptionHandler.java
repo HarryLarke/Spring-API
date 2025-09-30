@@ -24,4 +24,16 @@ public class GlobalExceptionHandler {
         );
     return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<ApiError> handle(StationNotFoundException e, HttpServletRequest req){
+        ApiError apiError = new ApiError(
+            req.getRequestURI(),
+            e.getMessage(),
+            HttpStatus.NOT_FOUND.value(),
+            ZonedDateTime.now(),
+            List.of()
+        );
+    return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
+    }
 }

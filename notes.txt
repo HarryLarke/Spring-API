@@ -26,4 +26,4 @@ DTO's and exceptionHandling might have to be moved into a there own dirs.
 
 Date 30.09.25 
 Goals:Finish building and integrating the Station table to the server. Also work on making sure the server correctly responds when receiving data types that exists in the table, but cannot be uipdated!
-Notes: As said yesterday, I've already made a start on the building more tables. 
+Notes: As said yesterday, I've already made a start on the building more tables. Now built the new table for the server. Got make the execeptions and validations a bit better.

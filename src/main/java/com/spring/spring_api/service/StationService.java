@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.spring.spring_api.SpringApiApplication;
 import com.spring.spring_api.DTO.Station.AddStationRequest;
 import com.spring.spring_api.DTO.Station.UpdateStationRequest;
+import com.spring.spring_api.exception.StationNotFoundException;
 import com.spring.spring_api.model.Station;
 import com.spring.spring_api.repository.StationRepo;
 
@@ -28,14 +29,14 @@ public class StationService {
     public static Optional<Station> getById(Integer id){
         Optional<Station> foundStation = stationRepo.findById(id);
         if(foundStation.isEmpty()){
-            throw new RuntimeException("Station not found"); //Will need custom notFound!
+            throw new StationNotFoundException("Station with id: " + id + " not found.");
         }
         return foundStation;
     }
 
     public static void deleteById(Integer id){
         if(!stationRepo.existsById(id)){
-            throw new RuntimeException("Id not found.");
+            throw new StationNotFoundException("Station with id: " + id + " not found. Cannot be deleted.");
         }
         stationRepo.deleteById(id);
     }
@@ -52,7 +53,7 @@ public class StationService {
     public static void update(UpdateStationRequest req, Integer id){
         Optional<Station> foundStationOpt = stationRepo.findById(id);
         if(foundStationOpt.isEmpty()){
-            throw new RuntimeException("Station not found.");
+            throw new StationNotFoundException("Station with id: " + id + " not found. Cannot be updated.");
         }
         Station foundStation = foundStationOpt.get();
 
